@@ -8,11 +8,49 @@
 	<string>Internet</string>
 	<key>connections</key>
 	<dict>
+		<key>43A194DD-2F63-4CE8-8ADE-5D5D234E631A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C8652A4F-DFCD-4DA8-84A2-689C4FD8C66A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>B11B132B-4A61-4C05-8F4F-2111F454E6C6</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>43A194DD-2F63-4CE8-8ADE-5D5D234E631A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>C8652A4F-DFCD-4DA8-84A2-689C4FD8C66A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>AFDCB2A9-4FE7-4B5E-BC45-C9C4EB96DC98</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>8F08327D-6869-454D-87F0-B9C274656E01</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>1E7553F5-DA8E-45C1-AF58-26559F317B77</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -32,27 +70,6 @@
 	<string>Flush DNS</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>flush</string>
-				<key>subtext</key>
-				<string>Flush DNS Cache</string>
-				<key>text</key>
-				<string>Flush DNS</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>B11B132B-4A61-4C05-8F4F-2111F454E6C6</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -78,6 +95,101 @@ end run</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>flush</string>
+				<key>subtext</key>
+				<string>Flush DNS Cache</string>
+				<key>text</key>
+				<string>Flush DNS</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>B11B132B-4A61-4C05-8F4F-2111F454E6C6</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>DNS cache flushed!</string>
+				<key>title</key>
+				<string>Flush DNS</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>AFDCB2A9-4FE7-4B5E-BC45-C9C4EB96DC98</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{query}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>4</integer>
+						<key>matchstring</key>
+						<string>ok</string>
+						<key>outputlabel</key>
+						<string>success</string>
+						<key>uid</key>
+						<string>8F08327D-6869-454D-87F0-B9C274656E01</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>fail</string>
+				<key>hideelse</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>C8652A4F-DFCD-4DA8-84A2-689C4FD8C66A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Reason: {query}</string>
+				<key>title</key>
+				<string>Flush DNS Failed</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>1E7553F5-DA8E-45C1-AF58-26559F317B77</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Flushes the DNS cache.  
@@ -85,6 +197,13 @@ end run</string>
 This requires elevated privileges, so you should be prompted by osascript to authenticate.</string>
 	<key>uidata</key>
 	<dict>
+		<key>1E7553F5-DA8E-45C1-AF58-26559F317B77</key>
+		<dict>
+			<key>xpos</key>
+			<real>395</real>
+			<key>ypos</key>
+			<real>320</real>
+		</dict>
 		<key>43A194DD-2F63-4CE8-8ADE-5D5D234E631A</key>
 		<dict>
 			<key>xpos</key>
@@ -92,12 +211,26 @@ This requires elevated privileges, so you should be prompted by osascript to aut
 			<key>ypos</key>
 			<real>65</real>
 		</dict>
+		<key>AFDCB2A9-4FE7-4B5E-BC45-C9C4EB96DC98</key>
+		<dict>
+			<key>xpos</key>
+			<real>400</real>
+			<key>ypos</key>
+			<real>200</real>
+		</dict>
 		<key>B11B132B-4A61-4C05-8F4F-2111F454E6C6</key>
 		<dict>
 			<key>xpos</key>
 			<real>50</real>
 			<key>ypos</key>
-			<real>50</real>
+			<real>70</real>
+		</dict>
+		<key>C8652A4F-DFCD-4DA8-84A2-689C4FD8C66A</key>
+		<dict>
+			<key>xpos</key>
+			<real>280</real>
+			<key>ypos</key>
+			<real>255</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
